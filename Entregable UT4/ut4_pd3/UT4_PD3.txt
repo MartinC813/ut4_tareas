@@ -1,0 +1,160 @@
+UT4_PD3
+
+################################################################################
+
+Ejercicio 1
+Insertar: Lenguaje natural: En el método del árbol se llamara al método insertar de TElementoAB de la raíz. 
+En el método del nodo se insertara, de manera recursiva, el nuevo nodo en su lugar correspondiente, basándose en si es más grande o más pequeño que el nodo actual. En caso de ser más grande se recorrerá el sub árbol derecho, en caso de ser más pequeño, el izquierdo. Esto itera hasta que el siguiente nodo a recorrer sea nulo, en cuyo caso se inserta allí el nuevo nodo, y si se encuentra un nodo con el mismo valor, retornara falso. 
+
+Precondiciones: No las hay
+Postcondiciones: En caso de lograr insertar el nodo, retorna true sino, false.
+
+
+Método del árbol: 
+booleano Insertar(etiqueta, dato)
+COM
+	TElemento nodo <-- nuevo TElemento(etiqueta, dato)
+	si raíz = nulo
+		raíz = nodo
+		devolver verdadero
+	fin si
+	devolver raíz.insertar(nodo)
+fin
+
+Método del nodo: 
+booleano Insertar(nodo)
+COM
+	si etiqueta = nodo.etiqueta
+		devolver falso
+	fin si
+	si etiqueta < nodo.etiqueta
+		si hijoIzq = nulo
+			hijoizq <-- nodo
+			deovlver verdadero
+		sino
+			devolver hijoizq.insertar(nodo)
+		fin si
+	fin si
+	sino 	
+		si hijoDer = nulo
+			hijoDer <-- nodo
+			deovlver verdadero
+		fin si
+		sino
+			devolver hijoDer.insertar(nodo)
+		fin si
+	fin si
+FIN
+
+################################################################################
+
+Ejercicio 2
+
+ContarHojas: Lenguaje Natural: La idea es que tengamos un metodo en el árbol el cual llama, en caso de que la raíz no sea nula
+al metodo de contar hojas del TElementoAB. La idea de este metodo es que tenga un contador el cual se aumentara en 1 por cada hoja encontrada.
+	
+Precondiciones: No las hay
+Postcondiciones: Devolver de manera correcta la cantidad de hojas.
+
+Metodo del árbol: 
+int ObtenerHojas()
+COM
+	res <-- 0
+	si raiz <> nulo
+		res <-- res + raiz.ObtenerHojas()
+	Fin si
+	devolver res
+FIN
+
+Metodo del nodo:
+int ObtenerHojas()
+COM
+	res <-- 0
+	si hijoizq = nulo y hijoDer = nulo
+		res <-- res + 1
+		devolver res
+	fin si
+	si hijoizq <> nulo
+		res <-- res + hijoIzq.ObtenerHojas()
+	fin si
+	si hijoDer <> nulo
+		res <-- res + hijoDer.ObtenerHojas()
+	fin si
+	devolver res
+FIN
+
+################################################################################
+
+Ejercicio 3
+
+SumaDeEnteros: Lenguaje natural: La idea es que tengamos un metodo en el árbol el cual llama, en caso de que la raíz no sea nula, al metodo de la raíz.
+En cuanto al metodo del TElementoAB, se hara la suma del valor de cada nodo y recorriendo, en caso de que no sea nulo, cada uno de sus hijos de manera recursiva. Cada llamada recursiva devolvera un entero.
+
+Precondiciones: Que sea un arbol de enteros
+Postcondiciones: Devolver de manera correcta la suma de cada nodo.
+
+Metodo del árbol:
+entero SumaDeEnteros()
+COM
+	res <-- 0
+	si raiz <> nulo
+		res <-- res + raiz.SumaDeEnteros()
+	Fin si
+	devolver res
+FIN
+
+Metodo del nodo:
+entero SumaDeEnteros()
+COM
+	res <-- 0
+	si hijoDer = nulo y hijoIzq = nulo
+		res <-- res + etiqueta
+		devolver res
+	fin si
+	si hijoIzq <> nulo
+		res <-- res + hijoIzq.SumaDeEnteros()
+	fin si
+	si hijoDer <> nulo
+		res <--  res + hijoDer.SumaDeEnteros()
+	fin si
+	res <-- res + etiqueta
+	devolver res
+FIN
+
+################################################################################
+
+Ejercicio 4
+
+NivelNodos: Lenguaje natural: En el metodo del árbol se llamara al metodo de la raíz, en caso de que la misma no sea nula, con tal que trabajar con todo el árbol.
+En cuanto al metodo del TElementoAB, en caso de que el nivel pasado por parametro sea igual al nivel actual, se sumara 1 a la cantidad a retornar. Se trabajara de manera recursiva.
+
+Precondiciones: No hay
+Postcondiciones: Devolver de manera correcta la cantidad de nodos al nivel indicado
+
+Metodo del árbol:
+entero NivelNodos(entero nivel)
+COM
+	cantidad <-- 0
+	si raiz <> nulo
+		devolver raiz.NivelNodos(nivel, cantidad)
+	Fin si
+	devolver 0
+FIN
+
+
+Metodo del nodo
+entero NivelNodos(entero nivel, entero nivelActual)
+COM
+	cantidad <-- 0
+	si nivel = nivelActual
+		cantidad <-- cantidad + 1
+		devolver cantidad
+	fin si
+	si hijoIzq <> nulo
+		cantidad <-- cantidad + hijoIzq.NivelNodos(nivel, nivelActual + 1)
+	fin si
+	si hijoDer <> nulo
+		cantidad <-- cantidad + hijoDer.NivelNodos(nivel, nivelActual + 1)
+	fin si
+	devolver cantidad
+FIN

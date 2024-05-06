@@ -1,0 +1,73 @@
+UT4_PD5
+
+MenorClave: Lenguaje natural: 
+El metodo encunetra la menor clave al moverse hacia la iz en el arbol.
+Precondiciones: ArbolBB bien estructurado.
+Postcondiciones: Devolver menor clave
+Tests: Ir cambiando la menor clave hasta el punto de que no exista un hijo iz. Ver que devuelve correctamente
+
+####################################################
+
+Mayor clave: Lenaguaje natural: 
+El metodo encuenmtra la mayor clave del arbol al moverse hacia la der del mismo
+Precondiciones: ArbolBB bien estructurado.
+Postcondiciones: Devolver mayor clave
+Tests: Ir cambiando la mayor clave hasta el punto de que no exista un hijo iz. Ver que devuelve correctamente
+
+####################################################
+
+Etiqueta anterior
+Lenguaje natural: Busca la etiqueta anterior a partir de preguntar si el hijo propio es la etiqueta a buscar.
+Precondiciones: Arbol correctamente estructurado
+Postcondiciones: Devolver la etiqueta anterior en caso de que exista
+
+####################################################
+
+NivelNodos: Lenguaje natural: 
+El metodo encuentra la cantidad de nodos a cierto nivel pasado por parametro. En el metodo del árbol se llamara al metodo de la raíz, en caso de que la misma no sea nula, con tal que trabajar con todo el árbol.
+En cuanto al metodo del TElementoAB, en caso de que el nivel pasado por parametro sea igual al nivel actual, se sumara 1 a la cantidad a retornar. Se trabajara de manera recursiva.
+
+Precondiciones: No hay
+Postcondiciones: Devolver de manera correcta la cantidad de nodos al nivel indicado
+
+Metodo del árbol:
+entero NivelNodos(entero nivel)
+COM
+	NivelActual <-- 1
+	si raiz <> nulo
+		devolver raiz.NivelNodos(nivel, cantidad)
+	Fin si
+	devolver 0
+FIN
+
+
+Metodo del nodo
+entero NivelNodos(entero nivel, entero nivelActual)
+COM
+	cantidad <-- 0
+	si nivel = nivelActual
+		cantidad <-- cantidad + 1
+		devolver cantidad
+	fin si
+	si hijoIzq <> nulo
+		cantidad <-- cantidad + hijoIzq.NivelNodos(nivel, nivelActual + 1)
+	fin si
+	si hijoDer <> nulo
+		cantidad <-- cantidad + hijoDer.NivelNodos(nivel, nivelActual + 1)
+	fin si
+	devolver cantidad
+FIN
+
+####################################################
+
+ListarHojasConNivel
+LN: Entra a cada nodo, si es hoja tiene un int pasadso por parametro recursivamente el cual referencia el nivel de la hoja. Se agrega a un diccionario: (nodo, nivel)
+Precondiciones: no las hay
+Postcondiciones: diccionario con (Nodo, nivel) de salida
+
+####################################################
+
+Verificar ArbolBB
+LN: Busca recursivamente en el sub arbol iz y derecho, si el iz es mayor, retorna falso, si el derecho en menor tambien
+Precondiciones: No hay nodos repetidos
+Postcondiciones: Retorna true si es BB

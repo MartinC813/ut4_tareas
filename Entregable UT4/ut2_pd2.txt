@@ -1,0 +1,83 @@
+UNIDAD TEMÁTICA 2: DISEÑO Y ANÁLISIS DE ALGORITMOS
+PRACTICOS DOMICILIARIOS INDIVIDUALES 2
+Ejercicio #1
+    1. Desarrolla en seudocódigo, en forma recursiva, un algoritmo para calcular el factorial de un cierto número
+    entero que se pasa como parámetro.
+        • Identifica claramente el caso base y la sentencia que lo contempla.
+        • ¿Puedes verificar que siempre el algoritmo progresará hacia el caso base?
+    2. Analiza el orden del tiempo de ejecución del algoritmo.
+    3. Implementa el algoritmo (en JAVA) y pruébalo:
+        • ¿Qué sucede si el número es negativo?
+        • Verifica que factorial(4), factorial(5), y factorial(0) produzcan los resultados
+Ejercicio #2
+    1. Desarrolla en seudocódigo, en forma recursiva, el algoritmo Algoritmo SumaLineal(A, n), que se describe en
+    la ppt de clase sobre recursividad.
+        • Identifica claramente el caso base y la sentencia que lo contempla.
+        • ¿Puedes verificar que siempre el algoritmo progresará hacia el caso base?
+    2. Analiza el orden del tiempo de ejecución del algoritmo
+    3. Implementa el algoritmo (en JAVA) y pruébalo:
+        • ¿Qué sucede si el parámetro n es negativo?
+        • ¿Qué sucede si el vector A está vacío?
+
+Ejercicio 1: 
+factorial(n)
+com
+    si n = 1 o n = 0
+        devolver n  //Caso base
+    sino
+        devolver n * factorial(n - 1) //Como el algoritmo siempre va a llamar recursivamente a la funcion restandole 1 a n, siempre va a llegar al caso base donde n = 1
+    fin si
+fin
+
+Ejercicio 2:
+SumaLineal(A, n)
+Com
+    SI n = 1
+        devolver A[0]
+    SINO
+        devolver SumaLineal(A, n - 1) + A[n - 1]
+    FIN si
+Fin
+
+
+Ejercicio #3
+    1. Desarrolla en seudocódigo, en forma recursiva, un algoritmo para calcular la potencia de un número. El
+    mismo ha de recibir como parámetros el número y el exponente (ver la ppt de clase sobre recursividad).
+        • Identifica claramente el caso base y la sentencia que lo contempla.
+        • ¿Puedes verificar que siempre el algoritmo progresará hacia el caso base?
+    2. Analiza el orden del tiempo de ejecución del algoritmo.
+    3. Implementa el algoritmo (en JAVA) y pruébalo:
+        • ¿Tu algoritmo soporta números reales o sólo enteros – para ambos parámetros?
+        • ¿qué sucede si uno, otro o ambos parámetros son negativos?
+Ejercicio #4
+    1. Desarrolla en seudocódigo, en forma recursiva, un algoritmo para invertir los componentes de un vector
+    pasado por parámetro, entre dos índices indicados también pasados como parámetros. (ver la ppt de clase
+    sobre recursividad).
+         Identifica claramente el / los caso(s) base y la(s) sentencia(s) que lo contempla(n).
+        • ¿Puedes verificar que siempre el algoritmo progresará hacia el caso base?
+    2. Analiza el orden del tiempo de ejecución del algoritmo.
+    3. Implementa el algoritmo (en JAVA) y pruébalo:
+        • Crea un pequeño vector y prueba el algoritmo. Prueba situaciones de borde (extremos), parámetros
+        fuera de rango, vector vacío, vector con sólo un elemento, etc. 
+
+
+Ejercicio 3:
+Potencia(n, e)
+Com
+    Si e = 1
+        devolver n
+    sino
+        devolver n * Potencia(n, e - 1)
+    fin si
+fin
+
+InvertirArray(a, i , j)
+Com
+    SI i < j then
+        aux <--  A[i]
+        A[i] <--  A[j]
+        A[j] <-- aux
+        InvertirArray(A, i + 1, j - 1)
+    FINSI
+FIN
+

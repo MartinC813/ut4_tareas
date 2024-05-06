@@ -1,0 +1,84 @@
+Trabajo hecho con el equipo
+
+1. El resultado siempre es 0. La función funcionaría para calcular la altura si fuera un árbol con un solo nodo. Para arreglarlo, se debería asignar el valor de x e y en una variable en cada uso de la recursividad.
+
+2. Devuelve el tamaño del árbol sin contar las hojas, es decir la cantidad de nodos internos. El resultado es 4 en el árbol del ejercicio.
+
+3. Devuelve la suma de los elementos del árbol (28 en este caso)
+
+4. Devuelve 1 si hay un duplicado de la etiqueta en el árbol, si no, devuelve 0.
+
+5.1. 
+
+encuentraLinealUno(nombreAtributo, valorAtributo):
+COMIENZO
+booleano x <- falso
+booleano y <- falso
+Si nodo.valor = valorAtributo
+	devolver verdadero
+Fin Si
+
+Si nodo.hijoIzq <> nulo
+	x <- nodo.hijoIzq.encuentraLinealUno(nombreAtributo, valorAtributo)
+Fin Si
+
+Si nodo.hijoDer <> nulo
+	y <- nodo.hijoDer.encuentraLinealUno(nombreAtributo, valorAtributo)
+Fin Si
+devolver x || y
+FIN
+
+6 comparaciones si etiqueta 1 es verdadero
+
+
+5.2 
+
+COMIENZO
+x <- falso
+y <- falso
+Si nodo.valor = valorAtributo
+	devolver verdadero
+Fin Si
+Si x || y
+	devolver verdadero
+Fin Si
+
+Si nodo.hijoIzq <> nulo
+	x <- nodo.hijoIzq.encuentraLinealUno(nombreAtributo, valorAtributo)
+Fin Si
+
+Si x 
+	devolver verdadero
+Fin Si
+
+Si nodo.hijoDer <> nulo
+	y <- nodo.hijoDer.encuentraLinealUno(nombreAtributo, valorAtributo)
+Fin Si
+FIN
+
+5.3
+
+encuentraLinealUno(nombreAtributo, valorAtributo):
+COMIENZO
+x <- nulo
+y <- nulo
+Si nodo.valor = valorAtributo
+	devolver nodo
+Fin Si
+
+Si nodo.hijoIzq <> nulo
+	x <- nodo.hijoIzq.encuentraLinealUno(nombreAtributo, valorAtributo)
+Fin Si
+
+Si nodo.hijoDer <> nulo
+	y <- nodo.hijoDer.encuentraLinealUno(nombreAtributo, valorAtributo)
+Fin Si
+
+Si x <> nulo
+	devolver x
+Si no, Si y <> nulo
+	devolver y
+Si no
+	devolver nulo
+FIN
+

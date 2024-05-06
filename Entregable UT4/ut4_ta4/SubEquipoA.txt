@@ -1,0 +1,49 @@
+ACLARACION: Este trabajo es una tarea domisiliaria la cual estoy realizando de manera individual, no existen dos sub equipos, solo yo.
+
+Contar hojas: 
+Lenguaje Natural: La idea es que tengamos un metodo en el árbol el cual llama, en caso de que la raíz no sea nula al metodo de contar hojas del TElementoAB. La idea de este metodo es que tenga un contador el cual se aumentara en 1 por cada hoja encontrada.
+	
+Precondiciones: Que el arbol este correctamente estructurado. No hayan problemas de referencias.
+Postcondiciones: Devolver la cantidad de hojas del árbol. 
+
+Metodo del árbol: 
+int ObtenerHojas()
+COM
+	res <-- 0
+	si raiz <> nulo
+		res <-- res + raiz.ObtenerHojas()
+	Fin si
+	devolver res
+FIN
+
+Metodo del nodo:
+int ObtenerHojas()
+COM
+	res <-- 0
+	si hijoizq = nulo y hijoDer = nulo
+		res <-- res + 1
+		devolver res
+	fin si
+	si hijoizq <> nulo
+		res <-- res + hijoIzq.ObtenerHojas()
+	fin si
+	si hijoDer <> nulo
+		res <-- res + hijoDer.ObtenerHojas()
+	fin si
+	devolver res
+FIN
+
+
+Lenguaje natural Test cases para el nivel de un nodo. Creo un arbol binario, creo 14 nodos los cuales ya se a que alturan estan debido a que es un arbolBB, 
+y aplico el metodo para buscar el nivel de esos 14 nodos.
+
+Test
+COM
+    Creo 14 nodos
+    Los inserto en el arbol.
+    //A partir de ya saber en que nivel se encuentra cada nodo, aplico para cada etiqueta del arbol el metodo y veo que devuelva correctamente
+    para cada nodo
+    Assert.areEqual(arbol.nivelNodos(etiqueta), (numero del nivel del nodo en especifico))
+    //Luego pruebo que no este el nodo en el arbol
+    Assert.areEqual(arbol.nivelNodos(etiquetaInexistente, 0))
+Fin

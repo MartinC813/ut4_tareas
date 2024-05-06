@@ -1,0 +1,52 @@
+ACLARACION: Este trabajo es una tarea domisiliaria la cual estoy realizando de manera individual, no existen dos sub equipos, solo yo.
+
+NivelNodoEspecifico:
+Lenguaje natural: El metodo encuentra la cantidad de nodos a cierto nivel pasado por parametro.
+En el metodo del árbol se llamara al metodo de la raíz, en caso de que la misma no sea nula, con tal que trabajar con todo el árbol.
+En cuanto al metodo del TElementoAB, en caso de que el nivel pasado por parametro sea igual al nivel actual, se sumara 1 a la cantidad a retornar. Se trabajara de manera recursiva.
+
+Precondiciones: No hay
+Postcondiciones: Devolver de manera correcta la cantidad de nodos al nivel indicado
+
+Metodo del árbol:
+entero NivelNodoEspecifico(Comparable etiqueta)
+COM
+	NivelActual <-- 1
+	si raiz <> nulo
+		devolver raiz.NivelNodoEspecifico(etiqueta, NivelActual)
+	Fin si
+	devolver 0
+FIN
+
+Metodo del nodo
+entero NivelNodoEspecifico(etiqueta et, entero nivelActual)
+COM
+    cantidad = 0
+	si etiqueta = et
+		devolver nivelActual
+	fin si
+	si hijoIzq <> nulo
+		cantidad <-- hijoIzq.NivelNodosEspecifico(nivel, nivelActual + 1)
+	fin si
+    si cantidad != 0
+        devolver cantidad
+    fin si
+	si hijoDer <> nulo
+		cantidad <-- hijoDer.NivelNodosEspecifico((nivel, nivelActual + 1)
+	fin si
+	devolver cantidad
+FIN
+
+Test
+Lenguaje natural: Test case para probar metodo de obtener hojas de un arbol. Creo 14 nodos, variando la cantidad de hojas y probando el algoritmo.
+Test
+COM
+//TYUPLKJSAZXCVN
+    Creo 14 nodos
+    Los inserto en el arbol.
+    Assert.areEqual(arbol.ObtenerHojas(), 5)
+    fin para
+    //Luego pruebo un arbol vacio.
+    Assert.areEqual(arbol.ObtenerHojas(), 0)
+	//Ultima prueba con otra cantidad de hojas especifica.
+Fin
